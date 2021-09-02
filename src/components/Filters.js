@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row, DropdownButton, Dropdown } from 'react-bootstrap'
 
 const Filters = ({
@@ -8,6 +8,17 @@ const Filters = ({
   listOfSubBreeds,
   breed,
 }) => {
+  const [subBreedTitle, setsubBreedTitle] = useState(listOfSubBreeds[0])
+
+  const capitalizeWord = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1)
+  }
+
+  const makeNewSubBreeSelection = (subBreed) => {
+    setNewSubBreed(subBreed)
+    setsubBreedTitle(capitalizeWord(subBreed))
+  }
+
   // FUNCTIONS
   const renderListOfDogs = () => {
     return listOfDogs.map((dogBreed, key) => (
@@ -24,7 +35,7 @@ const Filters = ({
   const renderListOfSubBreeds = () => {
     return listOfSubBreeds.map((subBreed, key) => (
       <Dropdown.Item
-        onClick={() => setNewSubBreed(subBreed)}
+        onClick={() => makeNewSubBreeSelection(subBreed)}
         key={key}
         value={subBreed}
       >
@@ -40,7 +51,7 @@ const Filters = ({
           id="dropdown-button-dark-example2"
           variant="success"
           menuVariant="dark"
-          title={breed.charAt(0).toUpperCase() + breed.slice(1)}
+          title={capitalizeWord(breed)}
           className="mb-2"
         >
           <Dropdown.Item onClick={() => setNewBreed('Todas las Razas')}>
@@ -50,20 +61,15 @@ const Filters = ({
         </DropdownButton>
       </Col>
 
-      {listOfSubBreeds.length !== 0 ? (
+      {listOfSubBreeds.length > 1 ? (
         <Col md>
           <DropdownButton
             id="dropdown-button-dark-example2"
             variant="danger"
             menuVariant="dark"
-            title={'Todas las Sub Razas'}
+            title={capitalizeWord(subBreedTitle)}
             className="mb-2"
           >
-            <Dropdown.Item
-              onClick={() => setNewSubBreed('Todas las Sub Razas')}
-            >
-              Todas las Sub Razas
-            </Dropdown.Item>
             {renderListOfSubBreeds()}
           </DropdownButton>
         </Col>

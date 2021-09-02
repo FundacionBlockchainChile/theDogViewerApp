@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Slider from './components/Slider'
 import Filters from './components/Filters'
@@ -35,26 +35,22 @@ const App = () => {
       setloading(false)
     }
     init()
-  }, [])
+  }, [imagesUrl])
 
   useEffect(() => {
     async function init() {
       setloading(true)
+      setSubBred(undefined)
       let listOfImages = await fetchListOfImages(imagesUrl)
       setlistOfImages(listOfImages)
       let listOfSubBreeds = await fetchListOfSubBreeds(breed)
-      setlistOfSubBreeds(listOfSubBreeds)
+      setlistOfSubBreeds(['Todas las Sub Razas', ...listOfSubBreeds])
       setloading(false)
     }
     init()
-  }, [breed])
-
-  useEffect(() => {
-    console.log(subBreed)
-  }, [subBreed])
+  }, [breed, imagesUrl])
 
   const setNewBreed = (breed) => {
-    console.log(breed)
     setBreed(breed)
   }
 
@@ -99,6 +95,18 @@ const App = () => {
       </header>
     </div>
   )
+
+  // return (
+  //   <div className="App">
+  //     <header className="App-header p-4">
+  //       <div className="smileWelcome">
+  //         <h3>Welcome to...</h3>
+  //         <h1>the Dog Founder</h1>
+  //         <Button>Dive In</Button>
+  //       </div>
+  //     </header>
+  //   </div>
+  // )
 }
 
 export default App
