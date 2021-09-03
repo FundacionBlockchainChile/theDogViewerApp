@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import { Container, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Slider from './components/Slider'
-import Filters from './components/Filters'
+import { Filters } from './containers/Filters'
+import { Landing } from './components/landing'
 import Loader from './components/Loader'
 import {
   fetchListOfImages,
   fetchListOfBreeds,
   fetchListOfSubBreeds,
-} from './fetchFunctions'
+} from './javascript/fetchFunctions'
 
 const App = () => {
+  const [landing, setLanding] = useState(true)
   const [loading, setloading] = useState(false)
   const [listOfDogs, setListOfDogs] = useState([])
   const [breed, setBreed] = useState('bulldog')
@@ -70,7 +72,9 @@ const App = () => {
     }
   }
 
-  return (
+  return landing ? (
+    <Landing setLanding={setLanding} />
+  ) : (
     <div className="App">
       <header className="App-header p-4">
         <h1>The Dog Founder</h1>
@@ -95,18 +99,6 @@ const App = () => {
       </header>
     </div>
   )
-
-  // return (
-  //   <div className="App">
-  //     <header className="App-header p-4">
-  //       <div className="smileWelcome">
-  //         <h3>Welcome to...</h3>
-  //         <h1>the Dog Founder</h1>
-  //         <Button>Dive In</Button>
-  //       </div>
-  //     </header>
-  //   </div>
-  // )
 }
 
 export default App
