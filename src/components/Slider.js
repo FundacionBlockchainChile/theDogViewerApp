@@ -8,7 +8,7 @@ const Slider = ({ listOfImages }) => {
     return listOfImages.map((image, key) => (
       <Carousel.Item key={key}>
         <Card className="mb">
-          <LazyLoadImage src={image} />
+          <LazyLoadImage height={image} alt={image} src={image} />
         </Card>
       </Carousel.Item>
     ))
