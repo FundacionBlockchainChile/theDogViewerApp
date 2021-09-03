@@ -32,6 +32,16 @@ body {
   width: 100%;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+LazyLoadImage {
+  max-width: 100%;
+  height: auto;
+}
+
 .App-header {
   margin: 20px 100px;
   border-radius: 50px;
