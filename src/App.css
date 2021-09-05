@@ -12,7 +12,7 @@ body {
 }
 
 .smileWelcome {
-  background: url('https://media2.giphy.com/media/xT3JvPQibFu3C/giphy.gif?cid=ecf05e47drwqjxepd5zgnu30dskkowf3nor5jkjj4blfef5a&rid=giphy.gif&ct=g') no-repeat;
+  background: url('./assets/landing_Image.jpg') no-repeat;
   background-size: cover;
   background-clip: border-box;
   background-position: center top;
@@ -25,7 +25,11 @@ body {
 .red {
   color: red;
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+}
 
+.white {
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 8px rgb(255, 0, 0);
 }
 
 #dropdown-button-dark-example2 {
@@ -45,14 +49,14 @@ img {
 .App-header {
   margin: 20px 100px;
   border-radius: 50px;
-  background-color: #282c34;
+  background-color: #17181a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: top;
   vertical-align: top;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(109, 109, 109);
 }
 
 @media (max-width: 600px) {

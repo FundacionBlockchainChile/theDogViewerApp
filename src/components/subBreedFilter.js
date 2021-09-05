@@ -24,7 +24,7 @@ export const SubBreedFilter = ({ listOfSubBreeds, setNewSubBreed }) => {
   return (
     <DropdownButton
       id="dropdown-button-dark-example2"
-      variant="danger"
+      variant="warning"
       menuVariant="dark"
       title={capitalizeWord(subBreedTitle)}
       className="mb-2"

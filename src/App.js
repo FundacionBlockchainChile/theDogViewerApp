@@ -13,7 +13,7 @@ import {
 } from './javascript/fetchFunctions'
 
 const App = () => {
-  const [landing, setLanding] = useState(false)
+  const [landing, setLanding] = useState(true)
   const [loading, setloading] = useState(false)
   const [listOfDogs, setListOfDogs] = useState([])
   const [breed, setBreed] = useState('bulldog')
@@ -77,7 +77,7 @@ const App = () => {
   ) : (
     <div className="App">
       <header className="App-header p-4">
-        <h1>The Dog Founder</h1>
+        <h1 className="white">The Dog Founder</h1>
         <h5>Find your favorite best firend!</h5>
         {loading ? (
           <Container>
