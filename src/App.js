@@ -13,7 +13,7 @@ import {
 } from './javascript/fetchFunctions'
 
 const App = () => {
-  const [landing, setLanding] = useState(true)
+  const [landing, setLanding] = useState(false)
   const [loading, setloading] = useState(false)
   const [listOfDogs, setListOfDogs] = useState([])
   const [breed, setBreed] = useState('bulldog')

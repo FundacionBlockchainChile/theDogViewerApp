@@ -35,11 +35,11 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  background-color: bLack;
 }
 
-LazyLoadImage {
-  max-width: 100%;
-  height: auto;
+.card img {
+  min-height: 200px;
 }
 
 .App-header {
